@@ -2,7 +2,7 @@
 # GitHub username: huynhvan126
 # Date: 10/09/2024
 # Description: Writing code for recording the menu items and daily sales of a lemonade stand.
-class InvalidSalesItemError (exception):
+class InvalidSalesItemError(Exception):
     pass
 
 class MenuItem:
@@ -56,7 +56,7 @@ class LemonadeStand:
         self._sales_record.append(sales_for_today)
         self._current_day += 1
 
-    def sales_of_menu_item_for_day(self, item_name):
+    def sales_of_menu_item_for_day(self, day, item_name):
         if day < len(self._sales_record):
             sales_dict = self._sales_record[day].get_sales_dict()
             return sales_dict.get(item_name, 0)
